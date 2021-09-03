@@ -19,6 +19,9 @@ export default class Api {
             },
             mensagem: mensagem
         }
+
+        console.log(chat);
+
         let r = await api.post(`/chat`, chat);
         return r.data;
     }

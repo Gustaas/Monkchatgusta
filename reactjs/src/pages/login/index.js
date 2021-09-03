@@ -11,6 +11,7 @@ import Cookies from 'js-cookie';
 
 import Api from '../../service/api';
 import { useHistory } from 'react-router-dom';
+
 const api = new Api();
 
 
@@ -32,7 +33,6 @@ export default function Login() {
             Cookies.set('usuario-logado', JSON.stringify(resp));
             navig.push('/chat');
         }
-
     }
 
     return (

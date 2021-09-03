@@ -59,8 +59,12 @@ export default function Conteudo() {
     }
 
     const enviarMensagem = async (event) => {
-        if (!(event && event.ctrlKey && event.charCode == 13))
+        console.log(event.charCode);
+
+        if (event.charCode && (event.ctrlKey === false || event.charCode !== 13))
             return;
+
+        console.log('foi aqui');
 
         const resp = await api.inserirMensagem(sala, usu, msg);
         if (!validarResposta(resp)) 
@@ -100,7 +104,7 @@ export default function Conteudo() {
                     </div>
                     <div>
                         <div className="label">Nick</div>
-                        <ChatInput value={usu} readOnly={true} /> 
+                        <ChatInput value={usu} onChange={e => setUsu(e.target.value)} readOnly={true} /> 
                     </div>
                     <div>
                         <ChatButton onClick={inserirSala}> Criar </ChatButton>
